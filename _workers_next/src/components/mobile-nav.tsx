@@ -9,10 +9,9 @@ import { cn } from "@/lib/utils"
 interface MobileNavProps {
     isLoggedIn: boolean
     isAdmin: boolean
-    showNav?: boolean
 }
 
-export function MobileNav({ isLoggedIn, isAdmin, showNav = true }: MobileNavProps) {
+export function MobileNav({ isLoggedIn, isAdmin }: MobileNavProps) {
     const { t } = useI18n()
     const pathname = usePathname()
 
@@ -31,12 +30,12 @@ export function MobileNav({ isLoggedIn, isAdmin, showNav = true }: MobileNavProp
             icon: Settings,
             active: pathname.startsWith("/admin")
         }] : []),
-        ...(showNav ? [{
+        {
             href: "/nav",
             label: t('common.navigator'),
             icon: Compass,
             active: pathname === "/nav" || pathname === "/navi"
-        }] : []),
+        },
         ...(isLoggedIn ? [{
             href: "/profile",
             label: isZh ? "个人中心" : "Profile",

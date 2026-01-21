@@ -684,10 +684,6 @@
         "navSearch": "Search stores...",
         "search": "Search",
         "navEmpty": "No stores yet.",
-        "visit": "Visit",
-        "hideNavLabel": "Hide navigator entry",
-        "hideNavHint": "Hide the LDC navigator link if you haven't joined.",
-        "hideNavEnabled": "Hidden",
-        "hideNavDisabled": "Visible"
+        "visit": "Visit"
     }
 }

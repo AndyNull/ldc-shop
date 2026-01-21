@@ -414,13 +414,6 @@ export async function saveNoIndex(enabled: boolean) {
     revalidateTag('home:product-categories')
 }
 
-export async function saveRegistryHideNav(enabled: boolean) {
-    await checkAdmin()
-    await setSetting('registry_hide_nav', enabled ? 'true' : 'false')
-    revalidatePath('/admin/settings')
-    revalidatePath('/')
-}
-
 export async function saveShopFooter(footer: string) {
     await checkAdmin()
 

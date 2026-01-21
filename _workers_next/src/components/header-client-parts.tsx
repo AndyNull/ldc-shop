@@ -35,20 +35,18 @@ export function HeaderLogo({ adminName, shopNameOverride, shopLogoOverride }: { 
     )
 }
 
-export function HeaderNav({ isAdmin, isLoggedIn, showNav = true }: { isAdmin: boolean; isLoggedIn: boolean; showNav?: boolean }) {
+export function HeaderNav({ isAdmin, isLoggedIn }: { isAdmin: boolean; isLoggedIn: boolean }) {
     const { t } = useI18n()
     const isZh = t('common.myOrders').includes('订单')
 
     return (
         <div className="hidden md:flex items-center gap-6">
-            {showNav && (
-                <Link
-                    href="/nav"
-                    className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 hover:-translate-y-0.5"
-                >
-                    {t('common.navigator')}
-                </Link>
-            )}
+            <Link
+                href="/nav"
+                className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 hover:-translate-y-0.5"
+            >
+                {t('common.navigator')}
+            </Link>
             {isLoggedIn && (
                 <>
                     <Link
@@ -95,16 +93,14 @@ export function HeaderSearch({ className }: { className?: string }) {
     )
 }
 
-export function HeaderUserMenuItems({ isAdmin, showNav = true }: { isAdmin: boolean; showNav?: boolean }) {
+export function HeaderUserMenuItems({ isAdmin }: { isAdmin: boolean }) {
     const { t } = useI18n()
 
     return (
         <>
-            {showNav && (
-                <DropdownMenuItem asChild>
-                    <Link href="/nav">{t('common.navigator')}</Link>
-                </DropdownMenuItem>
-            )}
+            <DropdownMenuItem asChild>
+                <Link href="/nav">{t('common.navigator')}</Link>
+            </DropdownMenuItem>
             <DropdownMenuItem asChild>
                 <Link href="/profile" className="flex w-full items-center justify-between gap-2">
                     <span>{t('common.myOrders').includes('订单') ? "个人中心" : "Profile"}</span>
